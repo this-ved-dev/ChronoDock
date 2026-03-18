@@ -20,11 +20,11 @@
 
 ---
 
-## 🎯 What is Cally?
+## 🎯 What is ChronoDock?
 
-**Cally** is a frameless, always-on-top desktop calendar widget for Windows that embeds your Google Calendar directly on your desktop. Think of it as a friendly ghost that knows exactly what you're doing next—minus the haunting.
+**ChronoDock** is a frameless, always-on-top desktop calendar widget for Windows that embeds your Google Calendar directly on your desktop. Think of it as a friendly ghost that knows exactly what you're doing next—minus the haunting.
 
-Built with Electron and a soft neumorphic design, Cally floats above your workflow so you never miss a meeting, birthday, or that dentist appointment you've been rescheduling since 2023.
+Built with Electron and a soft neumorphic design, ChronoDock floats above your workflow so you never miss a meeting, birthday, or that dentist appointment you've been rescheduling since 2023.
 
 ---
 
@@ -60,7 +60,7 @@ Built with Electron and a soft neumorphic design, Cally floats above your workfl
 
 ### Option A: Download (Easiest)
 
-1. Grab the latest release from the [Releases](https://github.com/YOUR_USERNAME/Electron-Cally/releases) page
+1. Grab the latest release from the [Releases](https://github.com/this-ved-dev/ChronoDock/releases) page
 2. Run `Cally Setup x.x.x.exe` (installer) or `Cally x.x.x.exe` (portable)
 3. Launch, click ⚙️, sign in with Google
 4. Your calendar is now floating on your desktop 🎉
@@ -69,8 +69,8 @@ Built with Electron and a soft neumorphic design, Cally floats above your workfl
 
 ```bash
 # Clone the repo
-git clone https://github.com/YOUR_USERNAME/Electron-Cally.git
-cd Electron-Cally
+git clone https://github.com/this-ved-dev/ChronoDock.git
+cd ChronoDock
 
 # Install & run
 npm install
@@ -94,7 +94,7 @@ npm start
 ## 📖 Product Guide
 
 ### First Launch
-1. **Launch Cally** — The widget appears in the top-right (or last position)
+1. **Launch ChronoDock** — The widget appears in the top-right (or last position)
 2. **Click ⚙️** — Opens settings; sign in with Google if prompted
 3. **Drag the header** — Reposition the widget anywhere on your screen
 4. **⟲ Refresh** — Manually reload your calendar
@@ -114,7 +114,7 @@ Enable "Pin to Desktop" in Settings → Appearance → Window. The widget become
 
 ## 🛠 Technical Documentation
 
-For a deeper technical dive (architecture, IPC, security model, extending Cally), see [docs/TECHNICAL.md](docs/TECHNICAL.md).
+For a deeper technical dive (architecture, IPC, security model, extending ChronoDock), see [docs/TECHNICAL.md](docs/TECHNICAL.md).
 
 ### Architecture
 
@@ -234,5 +234,5 @@ MIT License — see [LICENSE](LICENSE) for details.
   <strong>Made with ☕ and a mild obsession with never missing meetings</strong>
 </p>
 <p align="center">
-  <sub>If you find Cally useful, consider giving it a ⭐</sub>
+  <sub>If you find ChronoDock useful, consider giving it a ⭐</sub>
 </p>
