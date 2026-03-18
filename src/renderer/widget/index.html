@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calendar Widget</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+</head>
+<body class="neu-root widget-body">
+    <div class="widget-container neu-extruded">
+        <!-- Header Section -->
+        <div class="widget-header" style="-webkit-app-region: drag; cursor: move;">
+            <span class="widget-title neu-text-primary">📅 Calendar Widget</span>
+            <div class="widget-header-controls" style="-webkit-app-region: no-drag;">
+                <button class="neu-btn neu-extruded-small widget-header-btn" id="refreshBtn" title="Refresh">⟲</button>
+                <button class="neu-btn neu-extruded-small widget-header-btn" id="settingsBtn" title="Settings">⚙</button>
+            </div>
+        </div>
+
+        <!-- Calendar Section -->
+        <div class="widget-calendar-section">
+            <div class="widget-loading" id="loadingIndicator">
+                <div class="neu-spinner"></div>
+                <span class="neu-text-muted">Loading calendar...</span>
+            </div>
+            
+            <div class="widget-error neu-inset-deep" id="errorMessage" style="display: none;">
+                <div class="neu-font-display neu-text-primary widget-error-title">Calendar not available</div>
+                <div class="neu-text-muted widget-error-subtitle">Please sign in to view your calendar</div>
+            </div>
+            
+            <div class="widget-iframe-wrapper neu-inset">
+                <iframe class="widget-iframe" id="calendarIframe" style="display: none;"></iframe>
+            </div>
+        </div>
+    </div>
+
+    <style>
+        /* Widget-specific: frameless window, Electron drag regions */
+        .widget-body {
+            background: transparent !important;
+            height: 100vh;
+            width: 100vw;
+            user-select: none;
+            -webkit-user-select: none;
+            padding: 0;
+            margin: 0;
+            overflow: hidden;
+        }
+
+        .widget-container {
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+            border-radius: var(--neu-radius-container);
+            overflow: hidden;
+            padding: 0;
+        }
+
+        .widget-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 14px 18px;
+            background: var(--neu-bg);
+            flex-shrink: 0;
+        }
+
+        .widget-title {
+            font-family: var(--neu-font-title);
+            font-size: 15px;
+            font-weight: 600;
+            letter-spacing: -0.02em;
+        }
+
+        .widget-header-controls {
+            display: flex;
+            gap: 8px;
+        }
+
+        .widget-header-btn {
+            width: 36px;
+            height: 36px;
+            padding: 0;
+            font-size: 14px;
+        }
+
+        .widget-calendar-section {
+            flex: 1;
+            position: relative;
+            background: var(--neu-bg);
+            overflow: hidden;
+        }
+
+        .widget-iframe-wrapper {
+            position: absolute;
+            inset: 12px;
+            border-radius: var(--neu-radius-inner);
+            overflow: hidden;
+            padding: 4px;
+        }
+
+        .widget-iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+            background: #fff;
+            border-radius: 8px;
+        }
+
+        .widget-loading {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 16px;
+            font-size: 14px;
+        }
+
+        .widget-error {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            padding: 24px 32px;
+            border-radius: var(--neu-radius-base);
+            max-width: 280px;
+        }
+
+        .widget-error-title {
+            font-size: 16px;
+            margin-bottom: 8px;
+        }
+
+        .widget-error-subtitle {
+            font-size: 13px;
+        }
+    </style>
+</body>
+</html>

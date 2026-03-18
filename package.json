@@ -1,0 +1,98 @@
+{
+  "name": "cally",
+  "version": "1.0.0",
+  "description": "Your calendar that refuses to be forgotten — a floating desktop widget for Windows with Google Calendar",
+  "main": "dist/main/main/main.js",
+  "scripts": {
+    "setup": "node setup.js",
+    "build": "npm run build:main && npm run build:renderer",
+    "build:main": "tsc -p tsconfig.main.json",
+    "build:renderer": "webpack --mode production",
+    "dev": "npm run build:main && concurrently \"npm run watch:main\" \"npm run dev:renderer\" \"wait-on dist/main/main.js && electron .\"",
+    "watch:main": "tsc -p tsconfig.main.json --watch",
+    "dev:renderer": "webpack serve --mode development",
+    "start": "electron .",
+    "pack": "electron-builder",
+    "dist": "npm run build && electron-builder",
+    "rebuild": "electron-rebuild",
+    "postinstall": "electron-rebuild",
+    "lint": "eslint src/**/*.ts",
+    "lint:fix": "eslint src/**/*.ts --fix",
+    "clean": "rimraf dist build release"
+  },
+  "keywords": [
+    "electron",
+    "desktop-app",
+    "calendar",
+    "google-calendar",
+    "widget",
+    "windows",
+    "neumorphism",
+    "productivity",
+    "open-source",
+    "typescript"
+  ],
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/better-sqlite3": "^7.6.8",
+    "@types/node": "^20.10.4",
+    "@typescript-eslint/eslint-plugin": "^6.13.1",
+    "@typescript-eslint/parser": "^6.13.1",
+    "concurrently": "^8.2.2",
+    "css-loader": "^6.8.1",
+    "electron": "^28.0.0",
+    "electron-builder": "^24.8.1",
+    "electron-rebuild": "^3.2.9",
+    "eslint": "^8.54.0",
+    "html-webpack-plugin": "^5.5.3",
+    "rimraf": "^5.0.5",
+    "style-loader": "^3.3.3",
+    "ts-loader": "^9.5.1",
+    "typescript": "^5.3.2",
+    "wait-on": "^7.2.0",
+    "webpack": "^5.89.0",
+    "webpack-cli": "^5.1.4",
+    "webpack-dev-server": "^4.15.1"
+  },
+  "dependencies": {
+    "better-sqlite3": "^9.2.2",
+    "electron-store": "^8.1.0",
+    "electron-updater": "^6.1.7",
+    "electron-windows-notifications": "^2.0.0",
+    "googleapis": "^130.0.0",
+    "nan": "^2.17.0",
+    "node-addon-api": "^7.0.0",
+    "node-gyp": "^10.0.1"
+  },
+  "build": {
+    "appId": "com.cally.app",
+    "productName": "Cally",
+    "directories": {
+      "output": "release"
+    },
+    "files": [
+      "dist/**/*",
+      "native/**/*",
+      "node_modules/**/*"
+    ],
+    "win": {
+      "target": [
+        {
+          "target": "nsis",
+          "arch": ["x64"]
+        },
+        {
+          "target": "portable",
+          "arch": ["x64"]
+        }
+      ],
+      "icon": "assets/icon.ico",
+      "signAndEditExecutable": false
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true
+    }
+  }
+}

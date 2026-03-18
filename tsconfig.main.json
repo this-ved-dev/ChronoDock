@@ -1,0 +1,15 @@
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "outDir": "./dist/main",
+    "types": ["node", "better-sqlite3"]
+  },
+  "include": [
+    "src/main/**/*",
+    "src/shared/**/*",
+    "src/database/**/*",
+    "src/auth/**/*",
+    "src/calendar/**/*",
+    "src/notifications/**/*"
+  ]
+}

@@ -1,0 +1,543 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calendar Settings</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+</head>
+<body class="neu-root settings-body">
+    <div class="settings-container">
+        <aside class="settings-sidebar neu-extruded">
+            <nav class="settings-nav">
+                <button type="button" class="settings-nav-item active" data-section="account">
+                    <span class="settings-nav-icon">👤</span>
+                    Account
+                </button>
+                <button type="button" class="settings-nav-item" data-section="appearance">
+                    <span class="settings-nav-icon">🎨</span>
+                    Appearance
+                </button>
+                <button type="button" class="settings-nav-item" data-section="behavior">
+                    <span class="settings-nav-icon">⚙️</span>
+                    Behavior
+                </button>
+                <button type="button" class="settings-nav-item" data-section="notifications">
+                    <span class="settings-nav-icon">🔔</span>
+                    Notifications
+                </button>
+                <button type="button" class="settings-nav-item" data-section="advanced">
+                    <span class="settings-nav-icon">🔧</span>
+                    Advanced
+                </button>
+            </nav>
+        </aside>
+
+        <main class="settings-main">
+            <!-- Account Section -->
+            <section class="settings-section active" id="account">
+                <h1 class="settings-section-title neu-font-display neu-text-primary">Account</h1>
+                <p class="settings-section-subtitle neu-text-muted">Application information and status</p>
+
+                <div class="settings-group neu-card">
+                    <h2 class="settings-group-title neu-text-primary">Application Info</h2>
+                    
+                    <div class="settings-item">
+                        <div class="settings-label">
+                            <div class="settings-title neu-text-primary">Version</div>
+                            <div class="settings-description neu-text-muted">Current application version</div>
+                        </div>
+                        <div class="settings-control">
+                            <span class="neu-text-muted">1.0.0</span>
+                        </div>
+                    </div>
+
+                    <div class="settings-item">
+                        <div class="settings-label">
+                            <div class="settings-title neu-text-primary">Calendar Source</div>
+                            <div class="settings-description neu-text-muted">Your calendar is embedded directly from Google Calendar</div>
+                        </div>
+                        <div class="settings-control">
+                            <span class="settings-status settings-status-connected"></span>
+                            <span class="neu-text-muted">Google Calendar</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Appearance Section -->
+            <section class="settings-section" id="appearance">
+                <h1 class="settings-section-title neu-font-display neu-text-primary">Appearance</h1>
+                <p class="settings-section-subtitle neu-text-muted">Customize how your calendar widget looks</p>
+
+                <div class="settings-group neu-card">
+                    <h2 class="settings-group-title neu-text-primary">Theme</h2>
+                    
+                    <div class="settings-item">
+                        <div class="settings-label">
+                            <div class="settings-title neu-text-primary">Color Theme</div>
+                            <div class="settings-description neu-text-muted">Choose between light, dark, or automatic theme</div>
+                        </div>
+                        <div class="settings-control">
+                            <select class="neu-select" id="themeSelect">
+                                <option value="auto">Automatic</option>
+                                <option value="light">Light</option>
+                                <option value="dark">Dark</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="settings-item">
+                        <div class="settings-label">
+                            <div class="settings-title neu-text-primary">Opacity</div>
+                            <div class="settings-description neu-text-muted">Adjust widget transparency</div>
+                        </div>
+                        <div class="settings-control settings-control-row">
+                            <input type="range" class="neu-range" id="opacitySlider" 
+                                   min="0.3" max="1" step="0.1" value="0.9">
+                            <span id="opacityValue" class="neu-text-muted">90%</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="settings-group neu-card">
+                    <h2 class="settings-group-title neu-text-primary">Window</h2>
+                    
+                    <div class="settings-item">
+                        <div class="settings-label">
+                            <div class="settings-title neu-text-primary">Always on Top</div>
+                            <div class="settings-description neu-text-muted">Keep widget above other windows</div>
+                        </div>
+                        <div class="settings-control">
+                            <label class="neu-switch">
+                                <input type="checkbox" id="alwaysOnTopToggle">
+                                <span class="neu-slider"></span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="settings-item">
+                        <div class="settings-label">
+                            <div class="settings-title neu-text-primary">Click Through</div>
+                            <div class="settings-description neu-text-muted">Allow clicks to pass through widget</div>
+                        </div>
+                        <div class="settings-control">
+                            <label class="neu-switch">
+                                <input type="checkbox" id="clickThroughToggle">
+                                <span class="neu-slider"></span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="settings-item">
+                        <div class="settings-label">
+                            <div class="settings-title neu-text-primary">Pin to Desktop</div>
+                            <div class="settings-description neu-text-muted">Pin widget behind desktop icons</div>
+                        </div>
+                        <div class="settings-control">
+                            <label class="neu-switch">
+                                <input type="checkbox" id="pinToDesktopToggle">
+                                <span class="neu-slider"></span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Behavior Section -->
+            <section class="settings-section" id="behavior">
+                <h1 class="settings-section-title neu-font-display neu-text-primary">Behavior</h1>
+                <p class="settings-section-subtitle neu-text-muted">Configure how your calendar widget behaves</p>
+
+                <div class="settings-group neu-card">
+                    <h2 class="settings-group-title neu-text-primary">Sync Settings</h2>
+                    
+                    <div class="settings-item">
+                        <div class="settings-label">
+                            <div class="settings-title neu-text-primary">Sync Interval</div>
+                            <div class="settings-description neu-text-muted">How often to check for calendar updates</div>
+                        </div>
+                        <div class="settings-control">
+                            <select class="neu-select" id="syncIntervalSelect">
+                                <option value="5">5 minutes</option>
+                                <option value="10">10 minutes</option>
+                                <option value="15">15 minutes</option>
+                                <option value="30">30 minutes</option>
+                                <option value="60">1 hour</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="settings-item">
+                        <div class="settings-label">
+                            <div class="settings-title neu-text-primary">Event Horizon</div>
+                            <div class="settings-description neu-text-muted">How far ahead to show events</div>
+                        </div>
+                        <div class="settings-control">
+                            <select class="neu-select" id="horizonSelect">
+                                <option value="7">1 week</option>
+                                <option value="14">2 weeks</option>
+                                <option value="30">1 month</option>
+                                <option value="90">3 months</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="settings-group neu-card">
+                    <h2 class="settings-group-title neu-text-primary">Display Settings</h2>
+                    
+                    <div class="settings-item">
+                        <div class="settings-label">
+                            <div class="settings-title neu-text-primary">Time Format</div>
+                            <div class="settings-description neu-text-muted">12-hour or 24-hour time display</div>
+                        </div>
+                        <div class="settings-control">
+                            <select class="neu-select" id="timeFormatSelect">
+                                <option value="12h">12-hour (AM/PM)</option>
+                                <option value="24h">24-hour</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="settings-item">
+                        <div class="settings-label">
+                            <div class="settings-title neu-text-primary">Show Weekends</div>
+                            <div class="settings-description neu-text-muted">Include weekend events in display</div>
+                        </div>
+                        <div class="settings-control">
+                            <label class="neu-switch">
+                                <input type="checkbox" id="showWeekendsToggle">
+                                <span class="neu-slider"></span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Notifications Section -->
+            <section class="settings-section" id="notifications">
+                <h1 class="settings-section-title neu-font-display neu-text-primary">Notifications</h1>
+                <p class="settings-section-subtitle neu-text-muted">Configure event reminders and notifications</p>
+
+                <div class="settings-group neu-card">
+                    <h2 class="settings-group-title neu-text-primary">Reminder Settings</h2>
+                    
+                    <div class="settings-item">
+                        <div class="settings-label">
+                            <div class="settings-title neu-text-primary">Enable Notifications</div>
+                            <div class="settings-description neu-text-muted">Show desktop notifications for events</div>
+                        </div>
+                        <div class="settings-control">
+                            <label class="neu-switch">
+                                <input type="checkbox" id="notificationsToggle">
+                                <span class="neu-slider"></span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="settings-item">
+                        <div class="settings-label">
+                            <div class="settings-title neu-text-primary">Sound Alerts</div>
+                            <div class="settings-description neu-text-muted">Play sound with notifications</div>
+                        </div>
+                        <div class="settings-control">
+                            <label class="neu-switch">
+                                <input type="checkbox" id="soundToggle">
+                                <span class="neu-slider"></span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="settings-item">
+                        <div class="settings-label">
+                            <div class="settings-title neu-text-primary">Default Reminder</div>
+                            <div class="settings-description neu-text-muted">Default reminder time for new events</div>
+                        </div>
+                        <div class="settings-control">
+                            <select class="neu-select" id="defaultReminderSelect">
+                                <option value="0">No reminder</option>
+                                <option value="5">5 minutes</option>
+                                <option value="15">15 minutes</option>
+                                <option value="30">30 minutes</option>
+                                <option value="60">1 hour</option>
+                                <option value="120">2 hours</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="settings-item">
+                        <div class="settings-label">
+                            <div class="settings-title neu-text-primary">Test Notification</div>
+                            <div class="settings-description neu-text-muted">Send a test notification</div>
+                        </div>
+                        <div class="settings-control">
+                            <button type="button" class="neu-btn neu-btn-secondary" id="testNotificationBtn">Test</button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Advanced Section -->
+            <section class="settings-section" id="advanced">
+                <h1 class="settings-section-title neu-font-display neu-text-primary">Advanced</h1>
+                <p class="settings-section-subtitle neu-text-muted">Advanced settings and maintenance options</p>
+
+                <div class="settings-group neu-card">
+                    <h2 class="settings-group-title neu-text-primary">Data Management</h2>
+                    
+                    <div class="settings-item">
+                        <div class="settings-label">
+                            <div class="settings-title neu-text-primary">Clear Cache</div>
+                            <div class="settings-description neu-text-muted">Remove all cached calendar data</div>
+                        </div>
+                        <div class="settings-control">
+                            <button type="button" class="neu-btn neu-btn-secondary" id="clearCacheBtn">Clear Cache</button>
+                        </div>
+                    </div>
+
+                    <div class="settings-item">
+                        <div class="settings-label">
+                            <div class="settings-title neu-text-primary">Export Settings</div>
+                            <div class="settings-description neu-text-muted">Save settings to file</div>
+                        </div>
+                        <div class="settings-control">
+                            <button type="button" class="neu-btn neu-btn-secondary" id="exportSettingsBtn">Export</button>
+                        </div>
+                    </div>
+
+                    <div class="settings-item">
+                        <div class="settings-label">
+                            <div class="settings-title neu-text-primary">Reset All Settings</div>
+                            <div class="settings-description neu-text-muted">Reset to default configuration</div>
+                        </div>
+                        <div class="settings-control">
+                            <button type="button" class="neu-btn neu-btn-danger" id="resetSettingsBtn">Reset</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="settings-group neu-card">
+                    <h2 class="settings-group-title neu-text-primary">Debug</h2>
+                    
+                    <div class="settings-item">
+                        <div class="settings-label">
+                            <div class="settings-title neu-text-primary">Open Developer Tools</div>
+                            <div class="settings-description neu-text-muted">Open debugging console</div>
+                        </div>
+                        <div class="settings-control">
+                            <button type="button" class="neu-btn neu-btn-secondary" id="devToolsBtn">Open DevTools</button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <style>
+        /* Settings layout */
+        .settings-body {
+            min-height: 100vh;
+        }
+
+        .settings-container {
+            display: flex;
+            min-height: 100vh;
+        }
+
+        .settings-sidebar {
+            width: 260px;
+            flex-shrink: 0;
+            padding: 20px 0;
+            border-radius: 0 var(--neu-radius-container) var(--neu-radius-container) 0;
+            margin-right: 2px;
+        }
+
+        .settings-nav {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+            padding: 0 12px;
+        }
+
+        .settings-nav-item {
+            display: flex;
+            align-items: center;
+            width: 100%;
+            padding: 14px 20px;
+            border: none;
+            border-radius: var(--neu-radius-base);
+            background: transparent;
+            color: var(--neu-fg);
+            font-family: var(--neu-font-body);
+            font-size: 15px;
+            font-weight: 500;
+            text-align: left;
+            cursor: pointer;
+            transition: all var(--neu-transition);
+        }
+
+        .settings-nav-item:hover {
+            background: var(--neu-bg);
+            box-shadow: var(--neu-extruded-small);
+        }
+
+        .settings-nav-item.active {
+            background: var(--neu-bg);
+            box-shadow: var(--neu-inset);
+            color: var(--neu-accent);
+        }
+
+        .settings-nav-item:focus-visible {
+            outline: 2px solid var(--neu-accent);
+            outline-offset: 2px;
+        }
+
+        .settings-nav-icon {
+            margin-right: 12px;
+            font-size: 18px;
+        }
+
+        .settings-main {
+            flex: 1;
+            padding: 40px;
+            overflow-y: auto;
+        }
+
+        .settings-section {
+            display: none;
+            max-width: 600px;
+        }
+
+        .settings-section.active {
+            display: block;
+        }
+
+        .settings-section-title {
+            font-size: 28px;
+            margin-bottom: 8px;
+        }
+
+        .settings-section-subtitle {
+            font-size: 16px;
+            margin-bottom: 32px;
+        }
+
+        .settings-group {
+            margin-bottom: 24px;
+        }
+
+        .settings-group-title {
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 20px;
+        }
+
+        .settings-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 16px 0;
+            gap: 24px;
+        }
+
+        .settings-item:not(:last-child) {
+            border-bottom: 1px solid rgba(163, 177, 198, 0.2);
+        }
+
+        .settings-label {
+            flex: 1;
+            min-width: 0;
+        }
+
+        .settings-title {
+            font-weight: 500;
+            margin-bottom: 4px;
+        }
+
+        .settings-description {
+            font-size: 14px;
+        }
+
+        .settings-control {
+            flex-shrink: 0;
+        }
+
+        .settings-control-row {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .neu-select {
+            min-width: 140px;
+        }
+
+        /* Status indicators */
+        .settings-status {
+            display: inline-block;
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            margin-right: 8px;
+            vertical-align: middle;
+        }
+
+        .settings-status-connected {
+            background: var(--neu-accent-secondary);
+            box-shadow: 0 0 0 2px var(--neu-bg);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .settings-container {
+                flex-direction: column;
+            }
+
+            .settings-sidebar {
+                width: 100%;
+                border-radius: 0;
+                margin-right: 0;
+                padding: 12px;
+            }
+
+            .settings-nav {
+                flex-direction: row;
+                flex-wrap: wrap;
+            }
+
+            .settings-nav-item {
+                flex: 1;
+                min-width: 120px;
+            }
+
+            .settings-main {
+                padding: 24px;
+            }
+        }
+
+        /* Dark theme - neumorphic dark variant */
+        body.dark {
+            --neu-bg: #2d3748;
+            --neu-fg: #e2e8f0;
+            --neu-muted: #a0aec0;
+            --neu-placeholder: #718096;
+            --neu-shadow-light: rgba(255, 255, 255, 0.06);
+            --neu-shadow-light-hover: rgba(255, 255, 255, 0.1);
+            --neu-shadow-dark: rgba(0, 0, 0, 0.25);
+            --neu-shadow-dark-hover: rgba(0, 0, 0, 0.35);
+            --neu-extruded: 6px 6px 12px var(--neu-shadow-dark), -6px -6px 12px var(--neu-shadow-light);
+            --neu-extruded-hover: 8px 8px 16px var(--neu-shadow-dark-hover), -8px -8px 16px var(--neu-shadow-light-hover);
+            --neu-extruded-small: 4px 4px 8px var(--neu-shadow-dark), -4px -4px 8px var(--neu-shadow-light);
+            --neu-inset: inset 4px 4px 8px var(--neu-shadow-dark), inset -4px -4px 8px var(--neu-shadow-light);
+            --neu-inset-deep: inset 6px 6px 12px var(--neu-shadow-dark-hover), inset -6px -6px 12px var(--neu-shadow-light-hover);
+            --neu-inset-small: inset 2px 2px 4px var(--neu-shadow-dark), inset -2px -2px 4px var(--neu-shadow-light);
+        }
+
+        body.dark .settings-item:not(:last-child) {
+            border-bottom-color: rgba(255, 255, 255, 0.08);
+        }
+    </style>
+</body>
+</html>
