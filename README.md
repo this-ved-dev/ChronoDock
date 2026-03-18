@@ -83,7 +83,11 @@ npm start
 1. Go to [Google Cloud Console](https://console.cloud.google.com/)
 2. Create a project → Enable **Google Calendar API**
 3. Create **OAuth 2.0 credentials** (Desktop Application)
-4. Add your Client ID and Secret in `src/auth/auth-manager.ts`
+4. Create a `.env` file (copy from `.env.example`) and add your credentials:
+   ```
+   GOOGLE_CLIENT_ID=your_id.apps.googleusercontent.com
+   GOOGLE_CLIENT_SECRET=your_secret
+   ```
 
 ---
 

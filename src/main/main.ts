@@ -1,3 +1,4 @@
+import 'dotenv/config';
 import { app, BrowserWindow, Tray, Menu, ipcMain, shell, screen } from 'electron';
 import * as path from 'path';
 import { WindowManager } from './window-manager';
