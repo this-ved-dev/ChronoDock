@@ -1,5 +1,5 @@
 
-<h1 align="center">✨ Cally ✨</h1>
+<h1 align="center">✨ ChronoDock ✨</h1>
 <h3 align="center"><em>Your calendar that refuses to be forgotten</em></h3>
 
 <p align="center">
